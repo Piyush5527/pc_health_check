@@ -1,0 +1,35 @@
+{
+    "realm": "development",
+    "enabled": true,
+  
+    "clients": [
+      {
+        "clientId": "springboot-client",
+        "enabled": true,
+        "publicClient": true,
+        "directAccessGrantsEnabled": true,
+        "secret": "spring-secret",
+
+        "redirectUris": [
+          "*"
+        ],
+        "protocol": "openid-connect"
+      }
+    ],
+  
+    "users": [
+      {
+        "username": "testuser",
+        "email":"test@gmail.com",
+        "enabled": true,
+        "emailVerified": true,
+        "credentials": [
+          {
+            "type": "password",
+            "value": "password",
+            "temporary": false
+          }
+        ]
+      }
+    ]
+  }
