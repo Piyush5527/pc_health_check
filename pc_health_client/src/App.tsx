@@ -1,33 +1,25 @@
 import { useKeycloak } from "@react-keycloak/web";
-import Test from "./Test";
+import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
+import AppSidebar from "./components/ui/app-sidebar";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./AppRouter";
 
 function App() {
-  const { keycloak, initialized } = useKeycloak();
+  const { initialized } = useKeycloak();
   if (!initialized) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>React + Keycloak Demo</h1>
-
-      <p>Logged in: {keycloak.authenticated ? "Yes" : "No"}</p>
-
-      {keycloak.authenticated && (
-        <>
-          <p>Username: {keycloak.tokenParsed?.preferred_username}</p>
-
-          <p>Email: {keycloak.tokenParsed?.email}</p>
-
-          <button onClick={() => keycloak.logout()}>Logout</button>
-        </>
-      )}
-
-      <Test />
-      {!keycloak.authenticated && (
-        <button onClick={() => keycloak.login()}>Login</button>
-      )}
-    </div>
+    <BrowserRouter>
+      <SidebarProvider>
+        <AppSidebar />
+        <main className="p-4">
+          <SidebarTrigger />
+          <AppRoutes />
+        </main>
+      </SidebarProvider>
+    </BrowserRouter>
   );
 }
 
