@@ -1,5 +1,5 @@
 import { useKeycloak } from '@react-keycloak/web';
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Button } from './components/ui/button';
 
 const Test = () => {
@@ -11,7 +11,7 @@ const Test = () => {
             // await keycloak?.updateToken();
             // if (initialized) {
               console.log("first", keycloak.token);
-              const req = await fetch("http://localhost:8080", {
+              await fetch("http://localhost:8080", {
                 headers: {
                   Authorization: `Bearer ${keycloak.token}`,
                 },

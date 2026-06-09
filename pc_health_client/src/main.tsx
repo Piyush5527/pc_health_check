@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import keycloak from "./Keycloak.ts";
 
-createRoot(document.getElementById("root")).render(
+createRoot(document.getElementById("root")!).render(
   <ReactKeycloakProvider
     authClient={keycloak}
     initOptions={{

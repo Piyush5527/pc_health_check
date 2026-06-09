@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "imports": {
+    "@/*": ["./src/*"]
+  },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.9",
     "@react-keycloak/web": "^3.4.0",
@@ -38,6 +41,7 @@
     "globals": "^17.6.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.12"
+    "vite": "^8.0.12",
+    "vite-tsconfig-paths": "^6.1.1"
   }
 }
